@@ -1,0 +1,33 @@
+{
+  "name": "statbot",
+  "version": "1.0.0",
+  "description": "My status dashboard, now a desktop app c/o electron.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyob/statbot.git"
+  },
+  "keywords": [
+    "Danny",
+    "bot",
+    "todo"
+  ],
+  "author": "Danny O'Brien <danny@spesh.com> (http://www.spesh.com/danny/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dannyob/statbot/issues"
+  },
+  "homepage": "https://github.com/dannyob/statbot#README.md",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.4"
+  },
+  "dependencies": {
+    "menubar": "^2.3.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "sqlite3": "^3.1.1"
+  }
+}
