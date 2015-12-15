@@ -1,12 +1,11 @@
-# Statbot
+# Dannybot
 
-Statbot is an ancient tradition of my forebears, dating back to 90s. It
-used to be a status page on [spesh.com](http://www.spesh.com/) called dannybot,
-showing where I was, what I was up to, and how much email I was currently
-failing to answer.
+Dannybot is an ancient tradition of my forebears, dating back to 90s. It used
+to be a status page on [spesh.com](http://www.spesh.com/), showing where I was,
+what I was up to, and how much email I was currently failing to answer.
 
 These days, I'm a bit more inward-looking (though apparently just as
-egocentric). The modern statbot operates as a little status page for myself to
+egocentric). The modern dannybot operates as a little status page for myself to
 show me just how /fantastically/ I'm excelling my own personal goals. It's
 rather telling how many half-written dannybots I've now Frankensteinishly
 created, all sitting in their own repositories, and failing to be used.
@@ -19,15 +18,15 @@ Hopefully it will also be different in that I will get far enough into it that
 it will be useful for me. And perhaps for you, if you'd like to fork it and
 rename it into the YOUR-NAME-HERE-bot.
 
-# What Statbot (is supposed to) show
+# What Dannybot (is supposed to) show
 
 ## Mail
 
-The number one reason for a statbot is to demonstrate to me just how much
+The number one reason for a dannybot is to demonstrate to me just how much
 unanswered mail I have in my backlog, and how well I'm doing climbing onto the
 top of that pile. 
 
-Statbot should extract a bunch of statistics about my current inbox, and
+Dannybot should extract a bunch of statistics about my current inbox, and
 displays it in a hopefully visually clear style. It also notes and saves my
 inbox figures, and shows those older statistics as a recent historical record.
 
@@ -55,7 +54,7 @@ Will spin up a [replify](https://github.com/dshaw/replify) read–eval–print
 loop running in the context of Electron's main process.  Despite what the message says, you should use 
 
 ```
-rc /tmp/repl/statbot.sock
+rc /tmp/repl/dannybot.sock
 ```
 
 ... to connect to the REPL. If you don't have replify's rc installed, you can
@@ -64,9 +63,9 @@ socat.
 
 ## Licensing
 
-Statbot is GPL 3.0. See the [license file](LICENSE) for more info.
+Dannybot is GPL 3.0. See the [license file](LICENSE) for more info.
 
-Statbot uses [Photon](https://github.com/connors/photon), a UI toolkit for
+Dannybot uses [Photon](https://github.com/connors/photon), a UI toolkit for
 Electron, is copyright @connors. Released under MIT. [Full
 license](photon/LICENSE) for Photon.
 
