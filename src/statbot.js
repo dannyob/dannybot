@@ -1,14 +1,15 @@
+/*eslint-env browser */
 // main dannybot script
 
-exec = require('child_process').exec;
+var exec = require('child_process').exec;
 
 function ready() {
-    unread = exec('unread', {timeout: 100},
-            function (err, stdout, stderr) {
+   exec('unread', {timeout: 100},
+            function (err, stdout) {
                 update_mail_count(''+stdout);
             });
-    current_todo = exec('python ./src/todo_helper.py current', {timeout: 1000},
-            function (err, stdout, stderr) {
+   exec('python ./src/todo_helper.py current', {timeout: 1000},
+            function (err, stdout) {
                  var result = JSON.parse(''+stdout);
                  update_current_todo(result.above.join('<br>'));
             });
