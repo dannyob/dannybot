@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "test": "NODE_ENV=test mocha --compilers js:babel/register --recursive --require ./test/setup.js $(find test -name '*.spec.js')",
-    "test-watch": "npm test -- --watch"
+    "test-watch": "npm test -- --watch",
+    "lint": "eslint src/**/*.js test/**/*.js"
   },
   "repository": {
     "type": "git",
