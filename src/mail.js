@@ -14,9 +14,8 @@ fs.readFile(process.env.HOME + '/.config/dannybot/mail_config.js',
 function validate_folders(mf) {
     let r = true;
     _.map(mf, function (v) {
-        console.log(v);
-        if (v.length !== 3 ) { console.log(v + " not 3"); r = false; }
-        if ((v[0] !== "threads") && (v[0] !== "messages")) { console.log(v[0] + "not thready or messagey") ; r = false; }
+        if (v.length !== 3 ) { r = false; }
+        if ((v[0] !== "threads") && (v[0] !== "messages")) { r = false; }
     });
    return r;
 }

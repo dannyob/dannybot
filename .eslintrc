@@ -11,7 +11,7 @@
     "eol-last": 1,
     "no-new-require": 1,
     "no-sync": 1,
-    "no-console": 0,
+    "no-console": 1,
     "no-mixed-requires": [1, false]
   }
 }
