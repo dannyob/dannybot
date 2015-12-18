@@ -22,7 +22,7 @@ describe('mail._private.validate_folders', () => {
     });
 
     it('should return false without a thread/messages field', () => {
-        expect(mail._private.validate_folders(not_legit_folder1)).to.be.false;
+        expect(mail._private.validate_folders(not_legit_folder2)).to.be.false;
     });
 });
 
