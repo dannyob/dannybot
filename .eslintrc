@@ -1,17 +1,20 @@
 {
-  "env": {
-    "node": true,
-    "es6": true
+  'env': {
+    'node': true,
+    'es6': true
   },
-  "parser": "babel-eslint",
-  "extends" : "eslint:recommended",
-  "rules": {
-    "no-throw-literal": 1,
-    "semi": [2, "always"],
-    "eol-last": 1,
-    "no-new-require": 1,
-    "no-sync": 1,
-    "no-console": 1,
-    "no-mixed-requires": [1, false]
+  'parser': 'babel-eslint',
+  'extends' : 'eslint:recommended',
+  'rules': {
+    'no-throw-literal': 1,
+    'semi': [2, 'always'],
+    'eol-last': 1,
+    'quotes': [2, 'single', 'avoid-escape'],
+    'no-new-require': 1,
+    'no-sync': 1,
+    'no-console': 1,
+    'no-mixed-requires': [1, false],
+    'no-trailing-spaces': [2],
+    'no-multiple-empty-lines': [2, {'max': 2, 'maxEOF': 1}],
   }
 }

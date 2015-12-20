@@ -1,5 +1,5 @@
 /*eslint no-console: 0 */
-var electron = require('electron');  
+var electron = require('electron');
 var globalShortcut = electron.globalShortcut;
 var menubar = require('menubar');
 var mb = menubar({dir:'src', preload: true, icon: 'src/icon.png'});

@@ -8,9 +8,9 @@ describe('mail.folders', () => {
     });
 });
 
-const legit_folder = { 'inbox' : ["threads", "tag:foo", "inbox"] };
-const not_legit_folder1 = { "messbox" : ["threads", "wrongsize"] };
-const not_legit_folder2 = { "messbox" : ["scorcher", "otherwise", "okay"] };
+const legit_folder = { 'inbox' : ['threads', 'tag:foo', 'inbox'] };
+const not_legit_folder1 = { 'messbox' : ['threads', 'wrongsize'] };
+const not_legit_folder2 = { 'messbox' : ['scorcher', 'otherwise', 'okay'] };
 
 describe('mail._private.validate_folders', () => { 
     it('should return true on a legit folder structure', () => {
