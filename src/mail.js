@@ -17,12 +17,12 @@ function get_mail_config(config_file, cb) {
 
 // enforce some structure on folders
 function validate_folders(mf) {
-    let r = true;
-    _.map(mf, function (v) {
-        if (v.length !== 3 ) { r = false; }
-        if ((v[0] !== "threads") && (v[0] !== "messages")) { r = false; }
+    var new_mf = _.mapObject(mf, function (v) {
+        if (v.length !== 3 ) { throw new Error('Mail folder definition should be three fields long.' + v); }
+        if ((v[0] !== 'threads') && (v[0] !== 'messages')) { throw new Error('Mail folder should specify threads or messages.'); }
+        return v;
     });
-   return r;
+    return new_mf;
 }
 
 // exports

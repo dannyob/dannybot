@@ -12,21 +12,16 @@ const legit_folder = { 'inbox' : ['threads', 'tag:foo', 'inbox'] };
 const not_legit_folder1 = { 'messbox' : ['threads', 'wrongsize'] };
 const not_legit_folder2 = { 'messbox' : ['scorcher', 'otherwise', 'okay'] };
 
-describe('mail._private.validate_folders', () => { 
-    it('should return true on a legit folder structure', () => {
-        expect(mail._private.validate_folders(legit_folder)).to.be.ok;
+describe('mail._private.validate_folders', () => {
+    it('should return value on a legit folder structure', () => {
+        expect(mail._private.validate_folders(legit_folder)).to.deep.equal(legit_folder);
     });
 
-    it('should return false with a too short folder structure', () => {
-        expect(mail._private.validate_folders(not_legit_folder1)).to.be.false;
+    it('should throw error with a too short folder structure', () => {
+        expect(function () { mail._private.validate_folders(not_legit_folder1); }).to.throw(/three/);
     });
 
-    it('should return false without a thread/messages field', () => {
-        expect(mail._private.validate_folders(not_legit_folder2)).to.be.false;
+    it('should throw error without a thread/messages field', () => {
+        expect(function () { mail._private.validate_folders(not_legit_folder2); }).to.throw(/thread/);
     });
 });
-
-
-
-
-                
