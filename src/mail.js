@@ -1,19 +1,10 @@
 // notmuch = require('notmuch');
 const fs = require('fs');
 const _ = require('underscore');
+const q  = require('q');
 
+var readFile = q.nbind(fs.readFile);
 var folders = {};
-// read in the folder list
-
-function get_mail_config(config_file, cb) {
-    if (!config_file) {
-        config_file = process.env.HOME + '/.config/dannybot/mail_config.js';
-    }
-    fs.readFile(config_file,
-            function (err, data) {
-                cb(err, JSON.parse(data));
-            });
-}
 
 // enforce some structure and object structure on folders
 function _cleanup(mf) {
@@ -25,6 +16,19 @@ function _cleanup(mf) {
     return new_mf;
 }
 
+
+async function _get_mail_config(config_file) {
+        if (!config_file) {
+            config_file = process.env.HOME + '/.config/dannybot/mail_config.js';
+        }
+        try {
+            var data = await readFile(config_file);
+        } catch (e) {
+            throw e;
+        }
+        var result = _cleanup(JSON.parse(data));
+        return result;
+}
 // exports
 module.exports.folders = folders;
 
