@@ -24,4 +24,18 @@ describe('mail._private.cleanup', () => {
     it('should throw error without a thread/messages field', () => {
         expect(function () { mail._private.cleanup(not_legit_folder2); }).to.throw(/thread/);
     });
+
+    it('should return a Promise when asked for a count', () => {
+        expect(mail._private.cleanup(legit_folder).inbox.count()).is.a('Promise');
+                });
 });
+
+describe('mail._private.cleanup.folder.count', () => {
+    it('should be a Promise', () => {
+        expect(mail._private.cleanup(legit_folder).inbox.count()).is.a('Promise');
+                });
+    it('the Promise should return a number', () => {
+        expect(mail._private.cleanup(legit_folder).inbox.count()).eventually.is.a('Number');
+    });
+});
+

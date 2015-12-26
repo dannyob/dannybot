@@ -1,9 +1,13 @@
+/*eslint-disable no-unused-vars, no-console*/
 // notmuch = require('notmuch');
 const fs = require('fs');
+const child_process = require('child_process');
 const _ = require('underscore');
 const q  = require('q');
 
+
 var readFile = q.nbind(fs.readFile);
+var exec = q.nbind(child_process.exec);
 var folders = {};
 
 // enforce some structure and object structure on folders
@@ -11,7 +15,15 @@ function _cleanup(mf) {
     var new_mf = _.mapObject(mf, function (v) {
         if (v.length !== 3 ) { throw new Error('Mail folder definition should be three fields long.' + v); }
         if ((v[0] !== 'threads') && (v[0] !== 'messages')) { throw new Error('Mail folder should specify threads or messages.'); }
-        return v;
+        return {
+            description: v[2],
+            search_terms: v[1],
+            message_only: (v[0]==='messages'),
+            count : async function() {
+                var answer = await exec('notmuch count '+this.search_terms, {timeout: 1000});
+                return parseInt(answer[0]);
+            }
+        };
     });
     return new_mf;
 }
@@ -29,6 +41,7 @@ async function _get_mail_config(config_file) {
         var result = _cleanup(JSON.parse(data));
         return result;
 }
+
 // exports
 module.exports.folders = folders;
 
