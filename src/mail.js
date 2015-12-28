@@ -10,7 +10,6 @@ var readFile = q.nbind(fs.readFile);
 var exec = q.nbind(child_process.exec);
 var folders = {};
 
-// enforce some structure and object structure on folders
 function _cleanup(mf) {
     var new_mf = _.mapObject(mf, function (v) {
         if (v.length !== 3 ) { throw new Error('Mail folder definition should be three fields long.' + v); }
@@ -38,8 +37,7 @@ async function get_mail_config(config_file) {
         } catch (e) {
             throw e;
         }
-        var result = _cleanup(JSON.parse(data));
-        return result;
+        return  _cleanup(JSON.parse(data));
 }
 
 // exports

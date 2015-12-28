@@ -38,4 +38,3 @@ describe('mail._private.cleanup.folder.count', () => {
         expect(mail._private.cleanup(legit_folder).inbox.count()).eventually.is.a('Number');
     });
 });
-
