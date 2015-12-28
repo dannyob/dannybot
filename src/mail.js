@@ -29,7 +29,7 @@ function _cleanup(mf) {
 }
 
 
-async function _get_mail_config(config_file) {
+async function get_mail_config(config_file) {
         if (!config_file) {
             config_file = process.env.HOME + '/.config/dannybot/mail_config.js';
         }
@@ -44,11 +44,10 @@ async function _get_mail_config(config_file) {
 
 // exports
 module.exports.folders = folders;
+module.exports.get_mail_config = get_mail_config;
 
 if (process.env.NODE_ENV === 'test') {
     module.exports._private = {};
     module.exports._private.cleanup  = _cleanup;
-    module.exports._private.get_mail_config = _get_mail_config;
-} else {
-    _get_mail_config('').then(function(d) { console.log(_cleanup(d)); } );
+    module.exports._private.get_mail_config = get_mail_config;
 }
