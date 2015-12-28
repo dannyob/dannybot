@@ -1,26 +1,29 @@
 /*eslint-env browser */
 // main dannybot script
 
-var exec = require('child_process').exec;
+var mail = require('./mail');
 
 function ready() {
-   exec('unread', {timeout: 100},
-            function (err, stdout) {
-                update_mail_count(''+stdout);
-            });
-   exec('python ./src/todo_helper.py current', {timeout: 1000},
-            function (err, stdout) {
-                 var result = JSON.parse(''+stdout);
-                 update_current_todo(result.above.join('<br>'));
-            });
-          }
+    Promise.resolve(show_counts());
+}
+
+async function show_counts() {
+    try {
+        var folders = await mail.get_mail_config();
+        var counts = '';
+        for (var k in folders) {
+            var f = folders[k];
+            counts = counts + ' ' + await f.count();
+            update_mail_count(counts);
+        }
+    } catch (e) {
+        throw e;
+    }
+}
+
 
 function update_mail_count(s) {
     document.getElementById('inbox_num').innerHTML = s;
-}
-
-function update_current_todo(s) {
-    document.getElementById('todo_now').innerHTML = s;
 }
 
 window.onload = ready;
