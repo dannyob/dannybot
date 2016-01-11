@@ -1,6 +1,9 @@
 /* eslint-env mocha */
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import mail from '../src/mail';
+
+import chaiAsPromised from 'chai-as-promised';
+chai.use(chaiAsPromised);
 
 describe('mail.folders', () => {
     it('should return an object', () => {
