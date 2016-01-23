@@ -18,7 +18,7 @@ if (process.argv[2] === 'repl') {
 mb.on('ready', function() {
     var ret = globalShortcut.register(shortcut, function () {
         mb.showWindow();
-        mb.window.webContents.openDevTools();
+        // mb.window.webContents.openDevTools();
     });
     if (!ret) {
         console.log('Oh no! I could not register '+shortcut+' as a default shortcut.');
