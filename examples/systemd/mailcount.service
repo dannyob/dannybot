@@ -1,0 +1,10 @@
+[Unit]
+Description=Counts mail in notmuch and stores for dannybot
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/mailcount
+
+[Install]
+WantedBy=default.target
+

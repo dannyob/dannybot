@@ -1,18 +1,17 @@
 # Dannybot
 
-Dannybot is an ancient tradition of my forebears, dating back to 90s. It used
-to be a status page on [spesh.com](http://www.spesh.com/), showing where I was,
-what I was up to, and how much email I was currently failing to answer.
+Dannybot is an ancient tradition of my forebears, dating back to the 90s. It
+used to be a status page on [spesh.com](http://www.spesh.com/), showing where I
+was, what I was up to, and how much email I was currently failing to answer.
 
 These days, I'm a bit more inward-looking (though apparently just as
-egocentric). The modern dannybot operates as a little status page for myself to
-show me just how /fantastically/ I'm excelling my own personal goals. It's
-rather telling how many half-written dannybots I've now Frankensteinishly
-created, all sitting in their own repositories, and failing to be used.
+egocentric). The modern dannybot operates as a little status page for myself on
+my desktop to show me just how /fantastically/ I'm excelling my own personal
+goals. 
 
-Of course, this one will be different. It's different in that it's written in
-Nodejs — or more specifically, [Electron](http://electron.atom.io/) a very
-pleasant framework that lets you write desktop applications in Javascript.  
+It's written in Nodejs — or more specifically,
+[Electron](http://electron.atom.io/) a pleasant framework that lets you write
+desktop applications in Javascript.  
 
 Hopefully it will also be different in that I will get far enough into it that
 it will be useful for me. And perhaps for you, if you'd like to fork it and
@@ -29,6 +28,9 @@ top of that pile.
 Dannybot should extract a bunch of statistics about my current inbox, and
 displays it in a hopefully visually clear style. It also notes and saves my
 inbox figures, and shows those older statistics as a recent historical record.
+
+It has an optional [systemd service configuration](examples/systemd/) to record
+these stats even when the main program isn't running.
 
 ## My Todo list
 

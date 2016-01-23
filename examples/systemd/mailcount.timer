@@ -1,0 +1,10 @@
+[Unit]
+Description=Run mailcount.service every hour
+
+[Timer]
+OnCalendar=*-*-* *:10:00
+Persistent=true
+
+[Install]
+WantedBy=default.target
+
