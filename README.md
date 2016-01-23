@@ -67,8 +67,10 @@ socat.
 
 Dannybot is GPL 3.0. See the [license file](LICENSE) for more info.
 
-Dannybot uses [Photon](https://github.com/connors/photon), a UI toolkit for
-Electron, is copyright @connors. Released under MIT. [Full
+Dannybot contains code from:
+
+* [Photon](https://github.com/connors/photon), a UI toolkit for
+Electron. Copyright @connors. Released under MIT. [Full
 license](photon/LICENSE) for Photon.
 
 
