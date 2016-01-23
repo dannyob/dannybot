@@ -1,0 +1,6 @@
+#!/bin/sh
+MY_DEREFED_FILENAME="`readlink -f \"$0\"`"
+MY_PATH="`dirname \"$MY_DEREFED_FILENAME\"`"
+echo $MY_PATH
+(cd $MY_PATH/../.. && NODE_PATH=./src ./node_modules/.bin/babel-node src/cli-countmail-and-store.js
+)
