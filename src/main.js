@@ -2,7 +2,7 @@
 var electron = require('electron');
 var globalShortcut = electron.globalShortcut;
 var menubar = require('menubar');
-var mb = menubar({dir:'src', preload: true, icon: 'src/icon.png'});
+var mb = menubar({dir:'src', preload: true, icon: 'src/icon.png', width: 640, height: 512});
 
 var shortcut = 'super+0'; // our shortcut
 
