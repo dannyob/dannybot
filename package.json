@@ -39,6 +39,7 @@
     "electron-prebuilt": "^0.35.4"
   },
   "dependencies": {
+    "electron-json-storage": "^2.0.0",
     "menubar": "^2.3.0",
     "q": "^1.4.1",
     "react": "^0.14.3",

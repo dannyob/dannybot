@@ -1,7 +1,12 @@
 /*eslint-env browser */
 // main dannybot script
 
-var mail = require('./mail');
+const mail = require('./mail');
+const storage = require('electron-json-storage');
+const fs = require('fs');
+const q  = require('q');
+
+var readFile = q.nbind(fs.readFile);
 /* Function to run when DOM loaded */
 
 function ready() {
@@ -64,4 +69,26 @@ function update_mail_count(s) {
     document.getElementById('inbox_num').innerHTML = s;
 }
 
-window.onload = ready;
+async function read_checklist() {
+    var url = await storage.get('checklist_url');
+    if (!url) {
+        var url_json = await readFile('/home/danny/Private/lifehacking/checklist-url.js');
+        url = JSON.parse(url_json).api;
+        storage.set('checklist_url', url);
+    }
+    var response = await window.fetch(url);
+    var checklist = await response.json();
+    return checklist;
+}
+
+async function write_checklist(checklist) {
+    var url = await storage.get('checklist_url');
+    if (!url) {
+        var url_json = await readFile('/home/danny/Private/lifehacking/checklist-url.js');
+        url = JSON.parse(url_json).api;
+        storage.set('checklist_url', url);
+    }
+    console.log(JSON.stringify(checklist));
+    var response = await window.fetch(url, { method: 'PUT',  headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(checklist)});
+    console.log(response.status);
+}
