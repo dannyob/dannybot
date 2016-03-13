@@ -4,7 +4,7 @@
 var mail = require('./mail');
 
 function ready() {
-    Promise.resolve(show_counts());
+    show_counts();
 }
 
 async function show_counts() {
