@@ -4,8 +4,40 @@
 var mail = require('./mail');
 
 function ready() {
+    init_tab_handler();
     show_counts();
 }
+
+function init_tab_handler() {
+    var tab_buttons = document.querySelectorAll('#tab-buttons *[data-tab]');
+    for(var i = 0; i < tab_buttons.length; ++i) {
+        tab_buttons[i].onclick = function () {
+            var active = find_active_tab(tab_buttons);
+            switch_active_tab(active, this);
+        };
+    }
+}
+
+function find_active_tab(tb) {
+    for(var i = 0; i < tb.length; ++i) {
+        if (tb[i].classList.contains('active')) {
+            return tb[i];
+        }
+    }
+}
+
+function tab_div(tab) {
+    var div_id = tab.dataset.tab;
+    return document.getElementById(div_id);
+}
+
+function switch_active_tab(last_active, new_active) {
+    tab_div(last_active).style.display = 'none';
+    tab_div(new_active).style.display = 'block';
+    last_active.classList.remove('active');
+    new_active.classList.add('active');
+}
+
 
 async function show_counts() {
     try {

@@ -11,14 +11,14 @@
                 <h1 class="title">All Hail The Dannybot</h1>
 
                 <div class="toolbar-actions">
-                    <div class="btn-group">
-                        <button class="btn btn-default">
+                    <div id="tab-buttons" class="btn-group">
+                        <button data-tab="todo" class="btn btn-default">
                             <span class="icon icon-book"></span>
                         </button>
-                        <button class="btn btn-default">
+                        <button data-tab="mail" class="btn btn-default">
                             <span class="icon icon-mail"></span>
                         </button>
-                        <button class="btn btn-default active">
+                        <button data-tab="editor" class="btn btn-default active">
                             <span class="icon icon-docs"></span>
                         </button>
                     </div>
@@ -37,10 +37,16 @@
             <div class="window-content">
                 <div class="pane-group">
                     <div class="pane">
-                        <div id="todo">
+                        <div id="todo" style="display: none">
                             <span>Current todo:<span id="todo_now">?</span></span>
-                        </div>
                       <h1 class="title">Email:<span id="inbox_num">0</span></h1>
+                        </div>
+                        <div id="mail" style="display: none">
+                            <span>Hello, itsa me, email</span>
+                        </div>
+                        <div id="editor" style="display: block">
+                            <span>Hello, itsa me, editor</span>
+                        </div>
                     </div>
                 </div>
             </div>
