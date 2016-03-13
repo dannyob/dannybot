@@ -2,11 +2,16 @@
 // main dannybot script
 
 var mail = require('./mail');
+/* Function to run when DOM loaded */
 
 function ready() {
     init_tab_handler();
     show_counts();
 }
+
+window.onload = ready;
+
+/* Tab functions */
 
 function init_tab_handler() {
     var tab_buttons = document.querySelectorAll('#tab-buttons *[data-tab]');
@@ -38,6 +43,7 @@ function switch_active_tab(last_active, new_active) {
     new_active.classList.add('active');
 }
 
+/* Email count updater */
 
 async function show_counts() {
     try {
