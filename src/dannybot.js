@@ -12,6 +12,7 @@ var readFile = q.nbind(fs.readFile);
 function ready() {
     init_tab_handler();
     show_counts();
+    construct_checklist(document.getElementById('checklist'));
 }
 
 window.onload = ready;
@@ -64,9 +65,50 @@ async function show_counts() {
     }
 }
 
-
 function update_mail_count(s) {
     document.getElementById('inbox_num').innerHTML = s;
+}
+
+/* Checklist */
+async function construct_checklist(hn) {
+    hn.classList.add('checklist-container');
+    var cl = await read_checklist();
+    var a_checklist = cl.evening;
+    Object.keys(a_checklist).forEach(function (k) {
+        var item = a_checklist[k];
+        var div = document.createElement('div');
+        div.classList.add('checklist-item');
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `evening${k}`;
+        checkbox.name = `evening${k}`;
+        checkbox.value = '1';
+        if (item.value) {
+            checkbox.checked = true;
+        }
+        checkbox.onchange = function () {
+            item.value = this.checked;
+            write_checklist(cl);
+        };
+        div.appendChild(checkbox);
+        div.appendChild(document.createTextNode(item.text));
+        hn.appendChild(div);
+    });
+    var reset = document.createElement('button');
+    reset.type = 'reset';
+    reset.innerText = 'Clear';
+    reset.onclick = function () {
+        Object.keys(a_checklist).forEach(function (k) {
+            var item = a_checklist[k];
+            item.value = false;
+            });
+        var buttons = hn.querySelectorAll('.checklist-container input[type=checkbox]');
+        for (var i = 0; i < buttons.length; ++i) {
+            buttons[i].checked = false;
+        }
+        write_checklist(cl);
+    };
+    hn.appendChild(reset);
 }
 
 async function read_checklist() {
